@@ -41,6 +41,11 @@ public class GameBoardGUI implements Runnable, Observer{
 	private ArrayList<JButton> _tokenButtons;
 	
 	/**
+	 * true if magic wand has already been used.
+	 */
+	private boolean _wandUsed;
+	
+	/**
 	 * reference to the main window of the game that holds 
 	 * _leftPanel and _rightPanel
 	 */
@@ -186,6 +191,7 @@ public class GameBoardGUI implements Runnable, Observer{
 			public void actionPerformed(ActionEvent e) {
 				if(GameBoard.CURRENTPLAYER.getHasInsertedThisTurn()){
 					GameBoard.CURRENTPLAYER.endMyTurn();
+					_wandUsed = false;
 					_gb.toggleNextPlayer();
 					_gameFeedback.setText("\t\t\t\tGAME INFO\n\nIt is now " + GameBoard.CURRENTPLAYER.getName() +
 							"'s (" + GameBoard.CURRENTPLAYER.getColor() + " pawn) turn. "+
@@ -254,7 +260,19 @@ public class GameBoardGUI implements Runnable, Observer{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				//make sure player has moved tile.
+				if(GameBoard.CURRENTPLAYER.getHasInsertedThisTurn()){
+					//make sure awands are more than 0
+					if(!_wandUsed){
+						GameBoard.CURRENTPLAYER.useWand();
+						_wandUsed = true;
+					}
+				}
 				
+				
+				
+				
+				//make sure player does not use more than one magic wand per turn
 			}
 		
 		});

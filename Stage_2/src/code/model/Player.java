@@ -76,6 +76,20 @@ public class Player {
 	private int _wands;
 	
 	/**
+	 * @return the _wands
+	 */
+	public int get_wands() {
+		return _wands;
+	}
+
+	/**
+	 * @param _wands the _wands to set
+	 */
+	public void set_wands(int _wands) {
+		this._wands = _wands;
+	}
+
+	/**
  	 * The constructor Player assigns the instance variable _color to the String c
 	 * 
 	 * @param c is the color of the player
@@ -386,6 +400,18 @@ public class Player {
 	}
 	
 	public String getTextofFormulaCard(){
-		return "{ "+_card.getNum1()+", "+_card.getNum2()+", "+_card.getNum3()+" }";
+		return "{ "+_card.getNum1()+", "+_card.getNum2()+", "+_card.getNum3()+" }"+"  MAGIC WANDS: "+_wands;
 	}
+	
+	public void useWand(){
+		if(this._hasInsertedThisTurn){
+			if(this._wands > 0){
+				_wands--;
+				this._hasInsertedThisTurn = false;
+				this._hasMovedThisTurn = false;
+			}
+		}
+	}
+	
+	
 }
