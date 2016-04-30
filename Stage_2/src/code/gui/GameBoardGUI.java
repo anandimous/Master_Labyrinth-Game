@@ -166,6 +166,8 @@ public class GameBoardGUI implements Runnable, Observer{
 		//_leftPanelBack.setSize(720,720);
 		_rightPanel.setSize(720,720);
 		
+		
+		
 		_endTurnButton = new JButton("End Turn");
 		_endTurnButton.setFont(new Font("Garamond", Font.BOLD, 40));
 		_endTurnButton.setForeground(new Color(255,201,14));
@@ -220,7 +222,7 @@ public class GameBoardGUI implements Runnable, Observer{
 		});
 		
 		_leftPanel.setLayout(new GridLayout(1,1));
-		_rightPanel.setLayout(new GridLayout(4,1));
+		_rightPanel.setLayout(new GridLayout(5,1));
 		_leftPanelBehind.add(_leftPanel);
 		_leftPanelBehind.setLayout(new GridBagLayout());
 		_leftPanelBehind.setBackground(new Color(245,245,220));
@@ -244,10 +246,24 @@ public class GameBoardGUI implements Runnable, Observer{
 		_boardPanel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 		_boardPanel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 		
+		JButton mwbutton = new JButton("Use Magic Wand");
+		mwbutton.setBackground(Color.GREEN);
+		mwbutton.setFont(new Font("Garamond", Font.BOLD, 40));
+		mwbutton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		
+		});
+		
 		
 		_rightPanel.add(_playerInfoPanel);
 		_rightPanel.add(_shiftableTilePanel);
 		_rightPanel.add(_gameFeedbackPanel);
+		_rightPanel.add(mwbutton);
 		_rightPanel.add(_endTurnButton);
 		
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
