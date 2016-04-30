@@ -64,10 +64,19 @@ public class Player {
 	 * Current score of the player
 	 */
 	private int _score; //sum of token values
+		
+	/**
+	 * Player secret formula card
+	 */
+	private PlayerFormulaCard _card;
 	
+	/** 
+	 * Player magic wands owned
+	 */
+	private int _wands;
 	
 	/**
-	 * The constructor Player assigns the instance variable _color to the String c
+ 	 * The constructor Player assigns the instance variable _color to the String c
 	 * 
 	 * @param c is the color of the player
 	 * @author Weijin,Ken,Ian 
@@ -76,6 +85,8 @@ public class Player {
 		_color = c;		
 		_myTokens = new ArrayList<Token>();
 		_score = 0;
+		_card = new PlayerFormulaCard();
+		_wands = 3;
 	}
 	
 	/**
@@ -295,7 +306,23 @@ public class Player {
 	 * @author Ian, Weijin
 	 */
 	public int getScore(){
-		return _score;
+		int score;
+		score = _wands*3;
+		
+		for(Token t: _myTokens){
+			score = score + t.getValue();
+			
+			if(t.getValue() == _card.getNum1()){
+				score = score + 20;
+			}
+			if(t.getValue() == _card.getNum2()){
+				score = score + 20;
+			}
+			if(t.getValue() == _card.getNum3()){
+				score = score + 20;
+			}
+		}
+		return score;
 	}
 	/**
 	 * This method returns the player's tokens that he/she picked up 
