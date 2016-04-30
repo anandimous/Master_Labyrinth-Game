@@ -384,4 +384,8 @@ public class Player {
 	public void addToken(Token t){
 		_myTokens.add(t);
 	}
+	
+	public String getTextofFormulaCard(){
+		return "{ "+_card.getNum1()+", "+_card.getNum2()+", "+_card.getNum3()+" }";
+	}
 }

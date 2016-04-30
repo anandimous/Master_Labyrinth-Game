@@ -271,7 +271,9 @@ public class GameBoardGUI implements Runnable, Observer{
 		_gameFeedback.setPreferredSize(new Dimension(720,180));
 		_gameFeedbackPanel.add(_gameFeedback);
 		_gameFeedback.setBackground(new Color(245,245,220));
-		_gameFeedback.setText("\t\t\t\tGAME INFO\n\nIt is now " + GameBoard.CURRENTPLAYER.getName() + "'s (" + GameBoard.CURRENTPLAYER.getColor()+" pawn) turn."+
+		_gameFeedback.setText("\t\t\t\tGAME INFO\n\nIt is now " + GameBoard.CURRENTPLAYER.getName() + 
+				"'s (" + GameBoard.CURRENTPLAYER.getColor()+" pawn) turn. "+
+				GameBoard.CURRENTPLAYER.getTextofFormulaCard() +
 				"\nCurrent Collectible Token Number: " + _gb.getCurrentTargetTokenValue());
 		_gameFeedback.setFont(new Font("Garamond", Font.BOLD, 14));
 	}
