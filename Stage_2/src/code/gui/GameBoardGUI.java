@@ -186,7 +186,8 @@ public class GameBoardGUI implements Runnable, Observer{
 					GameBoard.CURRENTPLAYER.endMyTurn();
 					_gb.toggleNextPlayer();
 					_gameFeedback.setText("\t\t\t\tGAME INFO\n\nIt is now " + GameBoard.CURRENTPLAYER.getName() +
-							"'s (" + GameBoard.CURRENTPLAYER.getColor() + " pawn) turn."+
+							"'s (" + GameBoard.CURRENTPLAYER.getColor() + " pawn) turn. "+
+							GameBoard.CURRENTPLAYER.getTextofFormulaCard() +
 									"\nCurrent Collectible Token Number: " + _gb.getCurrentTargetTokenValue());
 					_gameFeedback.setFont(new Font("Garamond", Font.BOLD, 14));
 					
@@ -411,8 +412,10 @@ public class GameBoardGUI implements Runnable, Observer{
 				// TODO Auto-generated method stub
 				if(GameBoard.CURRENTPLAYER.getHasInsertedThisTurn()){
 					_gameFeedback.setText("\t\t\t\tGAME INFO\n\nIt is now " + GameBoard.CURRENTPLAYER.getName() +
-							"'s (" + GameBoard.CURRENTPLAYER.getColor() + " pawn) turn."+
-							"\nCurrent Collectible Token Number: " + _gb.getCurrentTargetTokenValue()+"\n\nYou cannot rotate the shiftable tile because you have"
+							"'s (" + GameBoard.CURRENTPLAYER.getColor() + " pawn) turn. "+
+							GameBoard.CURRENTPLAYER.getTextofFormulaCard() +
+							"\nCurrent Collectible Token Number: " + _gb.getCurrentTargetTokenValue()+
+							"\n\nYou cannot rotate the shiftable tile because you have"
 							+" already inserted this turn.");
 					_gameFeedback.setFont(new Font("Garamond", Font.BOLD, 14));
 				}
@@ -436,8 +439,10 @@ public class GameBoardGUI implements Runnable, Observer{
 				// TODO Auto-generated method stub
 				if(GameBoard.CURRENTPLAYER.getHasInsertedThisTurn()){
 					_gameFeedback.setText("\t\t\t\tGAME INFO\n\nIt is now " + GameBoard.CURRENTPLAYER.getName() +
-							"'s (" + GameBoard.CURRENTPLAYER.getColor() + " pawn) turn."+
-									"\nCurrent Collectible Token Number: " + _gb.getCurrentTargetTokenValue()+ "\n\nYou cannot rotate the shiftable tile because you have"
+							"'s (" + GameBoard.CURRENTPLAYER.getColor() + " pawn) turn. "+
+							GameBoard.CURRENTPLAYER.getTextofFormulaCard() +
+									"\nCurrent Collectible Token Number: " + _gb.getCurrentTargetTokenValue()+ 
+									"\n\nYou cannot rotate the shiftable tile because you have"
 							+" already inserted this turn.");
 					_gameFeedback.setFont(new Font("Garamond", Font.BOLD, 14));
 				}
