@@ -127,13 +127,22 @@ public class GameBoardGUI implements Runnable, Observer{
 	 * the JButton that is used to end each player's turn
 	 */
 	private JButton _endTurnButton;
+	 
+	/**
+	 * This Button will save the current game info into a plain text file and then exit the game.
+	 * @author Hanming Liu
+	 * @param gb
+	 */
+	private JButton _saveAndExitButton;
 	
+
 	/**
 	 * This method sets the observer for the gameboard
 	 * gb refers to the GameBoard object
 	 * @param gb refers to GameBoard
 	 * @author Ian,Weijin
 	 */
+	
 	public GameBoardGUI(GameBoard gb){
 		_gb = gb;
 		_gb.setObserver(this);
@@ -176,7 +185,7 @@ public class GameBoardGUI implements Runnable, Observer{
 		_endTurnButton = new JButton("End Turn");
 		_endTurnButton.setFont(new Font("Garamond", Font.BOLD, 40));
 		_endTurnButton.setForeground(new Color(255,201,14));
-		_endTurnButton.setPreferredSize(new Dimension(720,180));
+		_endTurnButton.setPreferredSize(new Dimension(360,180));
 		_endTurnButton.setBackground(new Color(0,0,0));
 		_endTurnButton.addActionListener(new ActionListener(){
 			
@@ -228,7 +237,7 @@ public class GameBoardGUI implements Runnable, Observer{
 		});
 		
 		_leftPanel.setLayout(new GridLayout(1,1));
-		_rightPanel.setLayout(new GridLayout(5,1));
+		_rightPanel.setLayout(new GridLayout(6,1));
 		_leftPanelBehind.add(_leftPanel);
 		_leftPanelBehind.setLayout(new GridBagLayout());
 		_leftPanelBehind.setBackground(new Color(245,245,220));
@@ -262,7 +271,7 @@ public class GameBoardGUI implements Runnable, Observer{
 				// TODO Auto-generated method stub
 				//make sure player has moved tile.
 				if(GameBoard.CURRENTPLAYER.getHasInsertedThisTurn()){
-					//make sure awands are more than 0
+					//make sure wands are more than 0
 					if(!_wandUsed){
 						GameBoard.CURRENTPLAYER.useWand();
 						_wandUsed = true;
@@ -277,12 +286,17 @@ public class GameBoardGUI implements Runnable, Observer{
 		
 		});
 		
+		_saveAndExitButton = new JButton("Save and Exit");
+		_saveAndExitButton.setBackground(Color.RED);
+		_saveAndExitButton.setFont(new Font("Garamond", Font.BOLD, 40));
+		_saveAndExitButton.setPreferredSize(new Dimension(360,190));
 		
 		_rightPanel.add(_playerInfoPanel);
 		_rightPanel.add(_shiftableTilePanel);
 		_rightPanel.add(_gameFeedbackPanel);
 		_rightPanel.add(mwbutton);
 		_rightPanel.add(_endTurnButton);
+		_rightPanel.add(_saveAndExitButton);
 		
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		_window.pack();
