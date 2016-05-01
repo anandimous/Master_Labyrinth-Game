@@ -70,6 +70,48 @@ public class SaveEvent implements ActionListener{
 
 		//do line 3 illegal push point
 		String line3 = "";
+		switch(_gb.getMoveableTileArray().get(0).getLastTileNum()){
+		case 1:
+			line3 = "9";
+			break;
+		case 3:
+			line3 = "8";
+			break;
+		case 5:
+			line3 = "7";
+			break;
+		case 7:
+			line3 = "4";
+			break;
+		case 13:
+			line3 = "12";
+			break;
+		case 21:
+			line3 = "5";
+			break;
+		case 27:
+			line3 = "11";
+			break;
+		case 35:
+			line3 = "6";
+			break;
+		case 41:
+			line3 = "10";
+			break;
+		case 43:
+			line3 = "1";
+			break;
+		case 45:
+			line3 = "2";
+			break;
+		case 47:
+			line3 = "3";
+			break;
+		default:
+			line3 = "-1";
+			break;
+		}
+		
 		
 		
 		System.out.println(line1);
