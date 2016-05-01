@@ -34,4 +34,8 @@ public class PlayerFormulaCard {
 		return ingrediant.get(2);
 	}
 	
+	public String allNumbers(){
+		return "["+ingrediant.get(0)+","+ingrediant.get(1)+","+ingrediant.get(2)+"]";
+	}
+	
 }

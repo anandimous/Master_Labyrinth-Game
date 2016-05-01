@@ -290,15 +290,7 @@ public class GameBoardGUI implements Runnable, Observer{
 		_saveAndExitButton.setBackground(Color.RED);
 		_saveAndExitButton.setFont(new Font("Garamond", Font.BOLD, 40));
 		_saveAndExitButton.setPreferredSize(new Dimension(360,190));
-		_saveAndExitButton.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				String saveString = this.CreateStateString();
-			}
-			
-		});
+		_saveAndExitButton.addActionListener(new SaveEvent(_gb,this));
 		
 		_rightPanel.add(_playerInfoPanel);
 		_rightPanel.add(_shiftableTilePanel);
@@ -313,6 +305,7 @@ public class GameBoardGUI implements Runnable, Observer{
 		update();
 		
 		_window.setVisible(true);
+		System.out.println("Hello World!");
 	}
 	
 	/**
@@ -885,7 +878,9 @@ public class GameBoardGUI implements Runnable, Observer{
 		}
 	}
 	
-	
+	JFrame getWindow(){
+		return _window;
+	}
 
 
 

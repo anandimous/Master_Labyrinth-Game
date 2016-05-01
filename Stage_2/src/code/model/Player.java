@@ -403,6 +403,10 @@ public class Player {
 		return "{ "+_card.getNum1()+", "+_card.getNum2()+", "+_card.getNum3()+" }"+"  MAGIC WANDS: "+_wands;
 	}
 	
+	public String codeFormula(){
+		return _card.allNumbers();
+	}
+	
 	public void useWand(){
 		if(this._hasInsertedThisTurn){
 			if(this._wands > 0){
