@@ -19,7 +19,7 @@ public class SaveEvent implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO crate String
+		//create String
 		
 		//do line 1 players
 		Player[] players = _gb.getPlayers();
@@ -117,11 +117,13 @@ public class SaveEvent implements ActionListener{
 		System.out.println(line1);
 		System.out.println(line2);
 		System.out.println(line3);
+		//end string creation.
 		
 		
+		// write string to file
+		String newLine = System.getProperty("line.separator");
 		
-		//TODO write string to file
-		
+		code.fileIO.FileIO.writeStringToFile("126SavedGame.mls", line1 +newLine+ line2 +newLine+ line3);
 		
 		
 		//close window

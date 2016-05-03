@@ -11,13 +11,20 @@ public class FileIO {
 	 * @param filename - the name of the file whose contents is to be read
 	 * @return the contents of the file, as String
 	 */
-	public static String readFileToString(String filename) {
+	public static HoldThreeStrings readFileToString(String filename) {
 		Scanner scan = null;
-		String contents = "";
+		HoldThreeStrings output = new HoldThreeStrings("","","");
 		try {
 			scan = new Scanner(new File(filename));
-			while (scan.hasNextLine()) {
-				contents = contents + scan.nextLine();
+			// scan lines 1, 2, and 3 for the strings of the lines.
+			if(scan.hasNextLine()){
+				output.line1 = scan.nextLine();
+			}
+			if(scan.hasNextLine()){
+				output.line2 = scan.nextLine();
+			}
+			if(scan.hasNextLine()){
+				output.line3 = scan.nextLine();
 			}
  		} catch (FileNotFoundException e) {
 			System.err.println("File not found: "+filename);
@@ -25,7 +32,7 @@ public class FileIO {
 		finally {
 			scan.close();
 		}
-		return contents;
+		return output;
 	}
 	
 	/**
