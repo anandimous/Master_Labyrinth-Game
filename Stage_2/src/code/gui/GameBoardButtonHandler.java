@@ -93,6 +93,8 @@ public class GameBoardButtonHandler implements ActionListener{
 			//we ignore his clicking the button because there's nothing
 			//left that is legal for him to do with it
 		}
+		_gbGUI.disable_saveAndExitButton();
+		
 		
 	}
 

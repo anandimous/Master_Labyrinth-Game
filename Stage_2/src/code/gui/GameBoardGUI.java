@@ -113,6 +113,11 @@ public class GameBoardGUI implements Runnable, Observer{
 	private JButton _rotateClockwise;
 	
 	/**
+	 * JButton for Magic Wand use by player.
+	 */
+	private JButton _mwbutton;
+	
+	/**
 	 * the JTextPane that displays the players' information
 	 */
 	private JTextPane _playerInfo;
@@ -232,6 +237,7 @@ public class GameBoardGUI implements Runnable, Observer{
 							p.getScore() + "\n" */+ "My Tokens Collected: " + tokens
 							+ "\n\n" + t1);
 					_playerInfo.setFont(new Font("Garamond", Font.BOLD, 14));
+					enable_saveAndExitButton();
 				}
 			}	
 		});
@@ -261,10 +267,10 @@ public class GameBoardGUI implements Runnable, Observer{
 		_boardPanel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 		_boardPanel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 		
-		JButton mwbutton = new JButton("Use Magic Wand");
-		mwbutton.setBackground(Color.GREEN);
-		mwbutton.setFont(new Font("Garamond", Font.BOLD, 40));
-		mwbutton.addActionListener(new ActionListener(){
+		_mwbutton = new JButton("Use Magic Wand");
+		_mwbutton.setBackground(Color.GREEN);
+		_mwbutton.setFont(new Font("Garamond", Font.BOLD, 40));
+		_mwbutton.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -291,11 +297,12 @@ public class GameBoardGUI implements Runnable, Observer{
 		_saveAndExitButton.setFont(new Font("Garamond", Font.BOLD, 40));
 		_saveAndExitButton.setPreferredSize(new Dimension(360,190));
 		_saveAndExitButton.addActionListener(new SaveEvent(_gb,this));
+		this.enable_saveAndExitButton();
 		
 		_rightPanel.add(_playerInfoPanel);
 		_rightPanel.add(_shiftableTilePanel);
 		_rightPanel.add(_gameFeedbackPanel);
-		_rightPanel.add(mwbutton);
+		_rightPanel.add(_mwbutton);
 		_rightPanel.add(_endTurnButton);
 		_rightPanel.add(_saveAndExitButton);
 		
@@ -880,6 +887,13 @@ public class GameBoardGUI implements Runnable, Observer{
 	
 	JFrame getWindow(){
 		return _window;
+	}
+	
+	void disable_saveAndExitButton(){
+		_saveAndExitButton.setEnabled(false);
+	}
+	void enable_saveAndExitButton(){
+		_saveAndExitButton.setEnabled(true);
 	}
 
 
