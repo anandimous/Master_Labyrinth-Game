@@ -140,6 +140,11 @@ public class GameBoardGUI implements Runnable, Observer{
 	 */
 	private JButton _saveAndExitButton;
 	
+	/**
+	 * holds the the wand button on the left and the end turn button on the right 
+	 */
+	private JPanel _2buttons;
+	
 
 	/**
 	 * This method sets the observer for the gameboard
@@ -169,6 +174,7 @@ public class GameBoardGUI implements Runnable, Observer{
 		_window.setBackground(new Color(245,245,220));
 		_window.getContentPane().setLayout(new GridLayout(1,2));
 		_leftPanel = new JPanel();
+		_2buttons = new JPanel();
 		//JPanel _leftPanelBack = new JPanel();
 		
 		try{
@@ -243,7 +249,7 @@ public class GameBoardGUI implements Runnable, Observer{
 		});
 		
 		_leftPanel.setLayout(new GridLayout(1,1));
-		_rightPanel.setLayout(new GridLayout(6,1));
+		_rightPanel.setLayout(new GridLayout(4,1));
 		_leftPanelBehind.add(_leftPanel);
 		_leftPanelBehind.setLayout(new GridBagLayout());
 		_leftPanelBehind.setBackground(new Color(245,245,220));
@@ -297,14 +303,18 @@ public class GameBoardGUI implements Runnable, Observer{
 		_saveAndExitButton.setFont(new Font("Garamond", Font.BOLD, 40));
 		_saveAndExitButton.setPreferredSize(new Dimension(360,190));
 		_saveAndExitButton.addActionListener(new SaveEvent(_gb,this));
-		this.enable_saveAndExitButton();
+		
+		_2buttons.setLayout(new GridLayout(1,2));
+		_2buttons.add(_mwbutton);
+		_2buttons.add(_saveAndExitButton);
 		
 		_rightPanel.add(_playerInfoPanel);
 		_rightPanel.add(_shiftableTilePanel);
 		_rightPanel.add(_gameFeedbackPanel);
-		_rightPanel.add(_mwbutton);
-		_rightPanel.add(_endTurnButton);
-		_rightPanel.add(_saveAndExitButton);
+		_rightPanel.add(_2buttons);
+//		_rightPanel.add(_mwbutton);
+//		_rightPanel.add(_endTurnButton);
+//		_rightPanel.add(_saveAndExitButton);
 		
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		_window.pack();
@@ -890,10 +900,12 @@ public class GameBoardGUI implements Runnable, Observer{
 	}
 	
 	void disable_saveAndExitButton(){
-		_saveAndExitButton.setEnabled(false);
+		_2buttons.remove(_saveAndExitButton);
+		_2buttons.add(_endTurnButton);
 	}
 	void enable_saveAndExitButton(){
-		_saveAndExitButton.setEnabled(true);
+		_2buttons.remove(_endTurnButton);
+		_2buttons.add(_saveAndExitButton);
 	}
 
 
