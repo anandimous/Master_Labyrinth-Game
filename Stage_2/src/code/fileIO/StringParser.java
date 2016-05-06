@@ -27,6 +27,20 @@ public class StringParser {
 		_curObjLocation = templocation;
 	}
 	
+	/**
+	 * start looking for character ch from ch
+	 * @param start
+	 * @param ch
+	 * @return
+	 */
+	public int findNextCharLocation(int start,char ch){
+		while(true){
+			if(_string.charAt(start) == ch){
+				return start;
+			}
+			start++;
+		}
+	}
 	
 	
 	

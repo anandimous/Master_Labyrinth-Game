@@ -421,5 +421,9 @@ public class Player {
 		_card = c;
 	}
 	
+	public void setColor(String c){
+		this._color = c;
+	}
+	
 	
 }

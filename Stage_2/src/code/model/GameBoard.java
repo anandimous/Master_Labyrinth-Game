@@ -3,6 +3,8 @@ package code.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Scanner;
+
 import code.model.Token;
 import code.fileIO.HoldThreeStrings;
 import code.gui.GameBoardGUI;
@@ -1046,20 +1048,43 @@ public class GameBoard {
 		}
 		private void setPlayers() {
 			// TODO _tip: numbOfPlayers is properly set already. parse the string line 1.
-			String playerLine = _state.line1players;
 			//parse for playername,playercolor,player tokens, player wands
-			int playerNumber = 0;
-			String playerName = "Default";
-			String playerColor = "N/A";
-			ArrayList<Token> playerTokens = new ArrayList<Token>();
-			int playerWands = 3;
-			
-			int locationInString = 0;
-			
-			while(locationInString<playerLine.length()){
+//			int playerNumber = 0;
+//			String playerName = "Default";
+//			String playerColor = "N/A";
+//			ArrayList<Token> playerTokens = new ArrayList<Token>();
+//			int playerWands = 3;
+//			
+//			int locationInString = 0;
+//			
+//			while(locationInString<playerLine.length()){
+//				 
+//			}
+			Scanner sc = new Scanner(_state.line1players);
+			sc.useDelimiter("[|]|,");
+			for(int i = 0;i<_numOfPlayers;i++){
+				Player player = new Player("Color");
+				sc.next();
+				player.setName(sc.next());
+				player.setColor(sc.next());
+				player.set_wands(Integer.parseInt(sc.next()));
+				sc.next();
+				sc.next();
+				int num1 = Integer.parseInt(sc.next());
+				int num2 = Integer.parseInt(sc.next());
+				int num3 = Integer.parseInt(sc.next());
+				player.set_card(new PlayerFormulaCard(num1,num2,num3));
+				sc.next();
+				sc.next();
+				ArrayList<Token> tokens = new ArrayList<Token>();
+				while(sc.hasNextInt()){
+					int value = sc.nextInt();
+					
+				}
+				
+				_gb._players[i] = player;
 				
 			}
-			
 		}
 		private void setCurrentTargetToken() {
 			// TODO calculate player's highest token collected, set it to the one above that.
