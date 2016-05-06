@@ -417,5 +417,9 @@ public class Player {
 		}
 	}
 	
+	public void set_card(PlayerFormulaCard c){
+		_card = c;
+	}
+	
 	
 }

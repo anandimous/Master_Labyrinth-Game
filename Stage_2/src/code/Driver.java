@@ -4,6 +4,8 @@ import code.model.*;
 import java.util.ArrayList;
 
 import javax.swing.SwingUtilities;
+
+import code.fileIO.HoldThreeStrings;
 import code.gui.GameBoardGUI;
 import code.model.GameBoard;
 import code.model.Player;
@@ -24,24 +26,37 @@ public class Driver {
 	  * Which would give you 3 players and be counted in the for loop by the in countNumOfPlayers
 	  * @author Josh,Ken
 	  */
-	 public static void main(String[] args){
-	 
-		 int countNumOfPlayers = 0;
-		 for (String s: args){
-			 countNumOfPlayers ++;
-		 }
-		 
-		 if(countNumOfPlayers == 1){
-			//TODO load game and stuff right here.
+	public static void main(String[] args){
+		
+		int countNumOfPlayers = 0;
+		for (String s: args){
+			countNumOfPlayers ++;
+		}
+
+		if(countNumOfPlayers == 1){
+			//load game and stuff right here.
+			//determine # of players
+			HoldThreeStrings Strings = code.fileIO.FileIO.readFileToHoldThreeStrings(args[0]);
+			int bracketCount = 0;
+			for (int c = Strings.line1players.length(); c > 0; c = c - 1){
+				if (Strings.line1players.charAt(c-1) == ']') {
+					bracketCount++;
+				}
+			}
+			GameBoard gb = new GameBoard(bracketCount/3);
+			//set gameboard
+			gb.new GameBoardRestore(gb,Strings);
 			
-//			SwingUtilities.invokeLater(new GameBoardGUI(gb));
-		 }
-	
-		 if(countNumOfPlayers > 1 && countNumOfPlayers < 5 ){
-			  GameBoard gb = new GameBoard(countNumOfPlayers);
-			  gb.setupRandomBoard();
-			  
-			  
+			
+			//final
+			SwingUtilities.invokeLater(new GameBoardGUI(gb));
+		}
+		
+		if(countNumOfPlayers > 1 && countNumOfPlayers < 5 ){
+			GameBoard gb = new GameBoard(countNumOfPlayers);
+			gb.setupRandomBoard();
+			
+			
 //			  ArrayList<MoveableTile> al = new ArrayList<MoveableTile>();
 //				//MOveableCol1
 //				MoveableTile m1 = new MoveableTile("I");

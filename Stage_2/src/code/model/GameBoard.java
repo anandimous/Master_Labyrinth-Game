@@ -1036,9 +1036,29 @@ public class GameBoard {
 	public class GameBoardRestore{
 		private GameBoard _gb;
 		private HoldThreeStrings _state;
-		public GameBoardRestore(GameBoard gb, HoldThreeStrings state){
-			_gb = gb;
-			_state = state;
+		public GameBoardRestore(GameBoard gameboard, HoldThreeStrings state){
+			this._gb = gameboard;
+			this._state = state;
+			this.setArrayOfMoveTiles();
+			this.setBoard();
+			this.setCurrentTargetToken();
+			this.setPlayers();
+		}
+		private void setPlayers() {
+			// TODO _tip: numbOfPlayers is properly set already. parse the string line 1.
+			
+		}
+		private void setCurrentTargetToken() {
+			// TODO calculate player's highest token collected, set it to the one above that.
+			
+		}
+		private void setBoard() {
+			// TODO 49 tiles, string parse line 2.
+			
+		}
+		private void setArrayOfMoveTiles() {
+			// TODO calculate Free Tile and set arrayOfMoveableTiles to a tile of that type
+			
 		}
 	}
 	

@@ -11,7 +11,7 @@ public class FileIO {
 	 * @param filename - the name of the file whose contents is to be read
 	 * @return the contents of the file, as String
 	 */
-	public static HoldThreeStrings readFileToString(String filename) {
+	public static HoldThreeStrings readFileToHoldThreeStrings(String filename) {
 		Scanner scan = null;
 		HoldThreeStrings output = new HoldThreeStrings("","","");
 		try {
@@ -59,9 +59,9 @@ public class FileIO {
 		return result;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(FileIO.writeStringToFile("lab9.kbr", "example3"));
-		System.out.println(FileIO.readFileToString("lab9.kbr"));
-	}
+//	public static void main(String[] args) {
+//		System.out.println(FileIO.writeStringToFile("lab9.kbr", "example3"));
+//		System.out.println(FileIO.readFileToString("lab9.kbr"));
+//	}
 
 }
