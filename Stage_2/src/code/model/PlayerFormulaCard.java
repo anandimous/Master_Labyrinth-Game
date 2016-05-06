@@ -22,6 +22,13 @@ public class PlayerFormulaCard {
 		}
 	}
 	
+	public PlayerFormulaCard(int one,int two, int three){
+		ingrediant.add(one);
+		ingrediant.add(two);
+		ingrediant.add(three);
+		
+	}
+	
 	public int getNum1(){
 		return ingrediant.get(0);
 	}

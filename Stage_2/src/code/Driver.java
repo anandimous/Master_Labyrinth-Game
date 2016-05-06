@@ -30,6 +30,12 @@ public class Driver {
 		 for (String s: args){
 			 countNumOfPlayers ++;
 		 }
+		 
+		 if(countNumOfPlayers == 1){
+			//TODO load game and stuff right here.
+			
+//			SwingUtilities.invokeLater(new GameBoardGUI(gb));
+		 }
 	
 		 if(countNumOfPlayers > 1 && countNumOfPlayers < 5 ){
 			  GameBoard gb = new GameBoard(countNumOfPlayers);
