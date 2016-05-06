@@ -1046,6 +1046,19 @@ public class GameBoard {
 		}
 		private void setPlayers() {
 			// TODO _tip: numbOfPlayers is properly set already. parse the string line 1.
+			String playerLine = _state.line1players;
+			//parse for playername,playercolor,player tokens, player wands
+			int playerNumber = 0;
+			String playerName = "Default";
+			String playerColor = "N/A";
+			ArrayList<Token> playerTokens = new ArrayList<Token>();
+			int playerWands = 3;
+			
+			int locationInString = 0;
+			
+			while(locationInString<playerLine.length()){
+				
+			}
 			
 		}
 		private void setCurrentTargetToken() {

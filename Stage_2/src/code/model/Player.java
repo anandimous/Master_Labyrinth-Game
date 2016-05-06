@@ -96,7 +96,7 @@ public class Player {
 	 * @author Weijin,Ken,Ian 
 	 */
 	public Player(String c){
-		_color = c;		
+		_color = c;
 		_myTokens = new ArrayList<Token>();
 		_score = 0;
 		_card = new PlayerFormulaCard();
