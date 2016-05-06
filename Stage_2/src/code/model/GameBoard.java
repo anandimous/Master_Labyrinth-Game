@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import code.model.Token;
+import code.fileIO.HoldThreeStrings;
 import code.gui.GameBoardGUI;
 
 /**
@@ -1029,6 +1030,15 @@ public class GameBoard {
 			_currentTargetToken = _tokens.get(index+1);
 			System.out.println("The old taget token number was: " + _tokens.get(index).getValue());
 			System.out.println("The new target token is token number: " + _currentTargetToken.getValue());
+		}
+	}
+	
+	public class GameBoardRestore{
+		private GameBoard _gb;
+		private HoldThreeStrings _state;
+		public GameBoardRestore(GameBoard gb, HoldThreeStrings state){
+			_gb = gb;
+			_state = state;
 		}
 	}
 	

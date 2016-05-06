@@ -18,13 +18,13 @@ public class FileIO {
 			scan = new Scanner(new File(filename));
 			// scan lines 1, 2, and 3 for the strings of the lines.
 			if(scan.hasNextLine()){
-				output.line1 = scan.nextLine();
+				output.line1players = scan.nextLine();
 			}
 			if(scan.hasNextLine()){
-				output.line2 = scan.nextLine();
+				output.line2Tiles = scan.nextLine();
 			}
 			if(scan.hasNextLine()){
-				output.line3 = scan.nextLine();
+				output.line3IllegalPush = scan.nextLine();
 			}
  		} catch (FileNotFoundException e) {
 			System.err.println("File not found: "+filename);
